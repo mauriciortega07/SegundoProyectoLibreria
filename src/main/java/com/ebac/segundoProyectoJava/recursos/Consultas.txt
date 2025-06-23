@@ -1,0 +1,32 @@
+create table autores (
+idAuthor INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+completeName VARCHAR(100) NOT NULL,
+biography VARCHAR(100) NOT NULL
+);
+
+create table usuarios (
+idUsuario INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+username VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+password VARCHAR(100) NOT NULL
+);
+
+create table libros (
+idBook INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+idAuthor INT,
+titleBook VARCHAR(100) NOT NULL,
+releaseYear INT,
+isbnCode VARCHAR(100) NOT NULL,
+idUsuario INT,
+
+FOREIGN KEY (idAuthor) REFERENCES autores(idAuthor),
+FOREIGN KEY (idUsuario) REFERENCES usuarios(idUsuario)
+);
+
+
+//CREA LA BASE DE DATOS QUE SE USARA PARA EL PROGRAMA PRINCIPAL
+create database segundo_proyecto_java;
+
+//CREA LA BASE DE DATOS QUE SE USARA PARA LOS TESTS
+create database segundo_proyecto_java_test;
+//PARA LOS TEST SOLO ES NECESARIO CREAR LA TABLA DE USUARIOS
